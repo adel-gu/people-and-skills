@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { MdPersonSearch } from 'react-icons/md';
+import Options from './Options';
 
 const SearchBar = () => {
-  const handleChange = () => {
-    console.log('yes');
+  const [isChange, setIsChange] = useState(false);
+
+  const handleChange = ({ currentTarget }: ChangeEvent<HTMLInputElement>) => {
+    currentTarget.value ? setIsChange(true) : setIsChange(false);
   };
+
   return (
     <div className="">
       <form
@@ -19,9 +23,11 @@ const SearchBar = () => {
             type="text"
             className="w-full"
             placeholder="search skills by peaople"
+            onChange={handleChange}
           />
         </div>
       </form>
+      {isChange && <Options />}
     </div>
   );
 };
