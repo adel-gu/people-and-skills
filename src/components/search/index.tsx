@@ -1,48 +1,27 @@
 import React from 'react';
-import { Stack, Autocomplete, TextField, colors } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material';
 import { MdPersonSearch } from 'react-icons/md';
 
-const theme = createTheme({
-  components: {},
-  palette: {
-    primary: {
-      main: '#cddc39',
-    },
-  },
-});
-
 const SearchBar = () => {
+  const handleChange = () => {
+    console.log('yes');
+  };
   return (
     <div className="">
-      <ThemeProvider theme={theme}>
-        <Stack sx={{ width: '100%' }}>
-          {/* <span className="flex items-center text-xl">
-            <MdPersonSearch />
-          </span> */}
-          <Autocomplete
-            freeSolo
-            id="free-solo-2-demo"
-            disableClearable
-            options={[1, 2, 3].map((option) => option)}
-            className="w-full rounded-full"
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Search skills by people name"
-                placeholder="Search skills by people name"
-                size="small"
-                className="text-white rounded-full"
-                color="primary"
-                InputProps={{
-                  ...params.InputProps,
-                  type: 'search',
-                }}
-              />
-            )}
+      <form
+        action=""
+        className="border border-green-500 flex items-center gap-2 px-3 py-1 rounded-full"
+      >
+        <span>
+          <MdPersonSearch />
+        </span>
+        <div className="w-full">
+          <input
+            type="text"
+            className="w-full"
+            placeholder="search skills by peaople"
           />
-        </Stack>
-      </ThemeProvider>
+        </div>
+      </form>
     </div>
   );
 };
