@@ -1,33 +1,41 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useRef } from 'react';
+import { useAppDispatch } from '../../hooks/hooks';
+import { retrievePersonSkills } from '../../redux/people/people';
 import { MdPersonSearch } from 'react-icons/md';
-import Options from './Options';
+import Icon from './Icon';
+import Label from './Label';
+import Input from './Input';
 
 const SearchBar = () => {
-  const [isChange, setIsChange] = useState(false);
+  const dispatch = useAppDispatch();
+  const formRef = useRef<HTMLFormElement | null>(null);
 
-  const handleChange = ({ currentTarget }: ChangeEvent<HTMLInputElement>) => {
-    currentTarget.value ? setIsChange(true) : setIsChange(false);
+  const handleSubmit = async (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    const formData = new FormData(formRef.current!);
+    const data = Object.fromEntries(formData);
+    const { name } = data;
+    dispatch(retrievePersonSkills(name as string));
+    console.log(name);
   };
 
   return (
-    <div className="">
-      <form
-        action=""
-        className="border border-green-500 flex items-center gap-2 px-3 py-1 rounded-full"
-      >
-        <span>
-          <MdPersonSearch />
-        </span>
-        <div className="w-full">
-          <input
+    <div className="relative">
+      <form action="" className="" onSubmit={handleSubmit} ref={formRef}>
+        <div className="w-full relative">
+          <Icon>
+            <MdPersonSearch />
+          </Icon>
+          <Label htmlFor="name">Search skills by people name</Label>
+          <Input
             type="text"
-            className="w-full"
-            placeholder="search skills by peaople"
-            onChange={handleChange}
+            name="name"
+            id="name"
+            autoComplete="off"
+            placeholder="Search skills by people name"
           />
         </div>
       </form>
-      {isChange && <Options />}
     </div>
   );
 };
