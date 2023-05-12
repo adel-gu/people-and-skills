@@ -1,4 +1,4 @@
-import { searchLabelClasses, classNames } from '../../utils/search';
+import { searchLabelClasses, classNames } from '../../utils';
 import { LabelProps } from '../../types/search';
 
 const Label = ({ className, children, htmlFor, ...props }: LabelProps) => {

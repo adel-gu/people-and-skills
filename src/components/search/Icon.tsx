@@ -1,4 +1,4 @@
-import { classNames, searchIconClasses } from '../../utils/search';
+import { classNames, searchIconClasses } from '../../utils';
 import { IconProps } from '../../types/search';
 
 const Icon = ({ className, children, ...props }: IconProps) => {

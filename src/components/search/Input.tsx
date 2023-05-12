@@ -1,4 +1,4 @@
-import { classNames, searchInputClasses } from '../../utils/search';
+import { classNames, searchInputClasses } from '../../utils';
 import { InputProps } from '../../types/search';
 
 const Input = ({
