@@ -1,22 +1,16 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  isPending,
-  isRejectedWithValue,
-  PayloadAction,
-} from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PeopleState, ProficiencyObj, Strength } from '../../types/redux';
+import dotenv from 'dotenv';
 
-// [] fetch specific user with skills details
+dotenv.config();
 
 // API URL
-const PERSON_SKILLS_URL = 'http://localhost:8080/api/';
-const ALL_URL = 'http://localhost:8080/api/all/';
+const PERSON_SKILLS_URL = process.env.PERSON_SKILLS_URL;
 
-const GET_PEOPLE = 'get-people';
-const GET_ALL_PEOPLE = 'get-all-people';
+const GET_PERSON_SKILLS = 'get-person-skills';
 
 export const retrievePersonSkills = createAsyncThunk(
-  GET_PEOPLE,
+  GET_PERSON_SKILLS,
   async (userName: string | undefined) => {
     try {
       const res = await fetch(`${PERSON_SKILLS_URL}${userName}`);
@@ -30,48 +24,6 @@ export const retrievePersonSkills = createAsyncThunk(
     }
   },
 );
-
-// export const retrievePoeples = createAsyncThunk(GET_ALL_PEOPLE, async () => {
-//   const res = await fetch(`${ALL_URL}`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       name: {
-//         term: 'adelguitoun',
-//       },
-//     }),
-//   });
-//   const data = await res.json();
-//   return data;
-// });
-
-export type Strength = {
-  name: string;
-  proficiency: string;
-  weight: number;
-};
-
-export interface Person {
-  name: string;
-  professionalHeadline: string;
-  picture: string;
-  verified?: boolean;
-}
-
-interface ProficiencyObj {
-  [key: string]: Array<Strength>;
-}
-
-export interface PeopleState {
-  person: Person;
-  strengths: Array<Strength>;
-  profiencies: ProficiencyObj;
-  isPending: boolean;
-  isRejected: boolean;
-  error: string;
-}
 
 const initialState: PeopleState = {
   person: {
@@ -115,6 +67,7 @@ const peopleSlice = createSlice({
             name: strength.name,
             proficiency: strength.proficiency,
             weight: strength.weight,
+            id: strength.id,
           };
         });
         state.isPending = false;
