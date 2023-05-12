@@ -1,12 +1,10 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PeopleState, ProficiencyObj, Strength } from '../../types/redux';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 // API URL
-const PERSON_SKILLS_URL = process.env.PERSON_SKILLS_URL;
+const PERSON_SKILLS_URL = 'http://localhost:8080/api/';
 
+// Action
 const GET_PERSON_SKILLS = 'get-person-skills';
 
 export const retrievePersonSkills = createAsyncThunk(
