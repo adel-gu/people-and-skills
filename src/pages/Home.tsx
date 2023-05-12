@@ -1,5 +1,5 @@
 import { useAppSelector } from '../hooks/hooks';
-import { PeopleState, Strength } from '../types/redux';
+import { PeopleState } from '../types/redux';
 import SearchBar from '../components/search';
 import { Avatar } from '../components/avatar';
 import Skill from '../components/skill';
