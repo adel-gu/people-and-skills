@@ -12,12 +12,12 @@ const Home = () => {
     useAppSelector<PeopleState>((state) => state.person);
 
   return (
-    <div className="border border-red-400 h-full">
+    <div className="h-full">
       <section>
         <SearchBar></SearchBar>
       </section>
       {isPending ? (
-        <div className="h-full flex justify-center items-center">
+        <div className="h-[20rem] flex justify-center items-center">
           <Bars
             height="80"
             width="80"
@@ -31,7 +31,7 @@ const Home = () => {
       ) : (
         <>
           {isRejected ? (
-            <div className="h-full flex justify-center items-center">
+            <div className="h-[20rem] flex justify-center items-center">
               <h1 className="text-3xl text-[#cddc39]">{error}!</h1>
             </div>
           ) : (

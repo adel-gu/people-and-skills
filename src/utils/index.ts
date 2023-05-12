@@ -7,7 +7,7 @@ const classNames = (...inputs: ClassValue[]) => {
 };
 
 const searchIconClasses = cva(
-  'absolute top-[50%] left-[1em]  translate-y-[-50%] text-2xl',
+  'absolute top-[50%] left-[1em] translate-y-[-50%] text-2xl',
 );
 
 const searchLabelClasses = cva(

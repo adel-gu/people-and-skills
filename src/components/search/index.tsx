@@ -31,7 +31,7 @@ const SearchBar = () => {
   return (
     <div className="relative">
       <form action="" className="" onSubmit={handleSubmit} ref={formRef}>
-        <div className="w-full relative">
+        <div className="w-full md:w-2/3 lg:w-1/2 mx-auto relative">
           <Icon>
             <MdPersonSearch />
           </Icon>

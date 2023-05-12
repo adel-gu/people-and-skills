@@ -6,7 +6,7 @@ import store from './redux/store';
 function App() {
   return (
     <Provider store={store}>
-      <div className="h-screen p-5">
+      <div className="p-16">
         <Home></Home>
       </div>
     </Provider>
