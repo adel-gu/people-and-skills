@@ -2,8 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { PeopleState, ProficiencyObj, Strength } from '../../types/redux';
 
 // API URL
-const PERSON_SKILLS_URL = 'https://people-and-skills.onrender.com/api/bios/';
-
+const PERSON_SKILLS_URL = 'https://people-and-skills.onrender.com/api/';
 // Action
 const GET_PERSON_SKILLS = 'get-person-skills';
 
