@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react';
 import { useAppSelector } from '../hooks/hooks';
 import { PeopleState, Strength } from '../types/redux';
 import SearchBar from '../components/search';

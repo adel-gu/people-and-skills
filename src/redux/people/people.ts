@@ -38,7 +38,7 @@ const initialState: PeopleState = {
 
 const collectSkillsByProfiency = (strengths: Array<Strength>) => {
   const profiencies: ProficiencyObj = {};
-  strengths.map((strength) => {
+  strengths.forEach((strength) => {
     if (!profiencies.hasOwnProperty(strength.proficiency)) {
       profiencies[`${strength.proficiency}`] = [];
     }
