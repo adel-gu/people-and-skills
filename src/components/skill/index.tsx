@@ -1,8 +1,15 @@
-import React from 'react';
-import { FaWeightHanging } from 'react-icons/fa';
+import { SkillPros } from '../../types/skill';
+import { SkillButtonClasses, classNames } from '../../utils';
 
-const Skill = () => {
-  return <>skill</>;
+const Skill = ({ className, children, ...props }: SkillPros) => {
+  return (
+    <button
+      {...props}
+      className={classNames(SkillButtonClasses({ className }))}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Skill;
